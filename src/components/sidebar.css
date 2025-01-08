@@ -1,0 +1,23 @@
+.sidebar {
+    width: 200px;
+    background-color: #fff;
+    color: #222;
+    padding: 5px;
+    height: 100%;
+  }
+  
+  .sidebar ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .sidebar li {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    cursor: pointer;
+  }
+  
+  .sidebar .icon {
+    margin-right: 10px;
+  }
