@@ -5,6 +5,10 @@ const SideNavBar = () => {
 	const [isExpanded, setExpendState] = useState(false);
 	const menuItems = [
         {
+			text: "Home",
+			icon: "icons/home.svg",
+		},
+        {
 			text: "Trending",
 			icon: "icons/trending.svg",
 		},
@@ -67,23 +71,7 @@ const SideNavBar = () => {
 					))}
 				</div>
 			</div>
-			<div className="nav-footer">
-				{isExpanded && (
-					<div className="nav-details">
-						<img
-							className="nav-footer-avatar"
-							src="icons/admin-avatar.svg"
-							alt=""
-							srcset=""
-						/>
-						<div className="nav-footer-info">
-							<p className="nav-footer-user-name">M Showkat</p>
-							<p className="nav-footer-user-position">store admin</p>
-						</div>
-					</div>
-				)}
-				<img className="logout-icon" src="icons/logout.svg" alt="" srcset="" />
-			</div>
+
 		</div>
 	);
 };

@@ -1,4 +1,4 @@
-import SideNavBar from "./src/components/sidebar";
+import SideNavBar from "./components/Sidebar/sidebar";
 
 export default function App() {
 	return (
