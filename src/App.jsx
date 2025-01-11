@@ -1,13 +1,9 @@
-import React from 'react';
-import Home from './components/home';
-import './App.css';
+import SideNavBar from "./src/components/sidebar";
 
-function App() {
-  return (
-    <div className="app-container">
-      <Home/>
-    </div>
-  );
-}
-
-export default App;
+export default function App() {
+	return (
+		<div>
+			<SideNavBar />
+		</div>
+	);
+};
