@@ -1,9 +1,9 @@
-import SideNavBar from "./components/navbar/sidebar";
+import AboutUs from "./components/aboutus/aboutus";
 
 export default function App() {
 	return (
 		<div>
-			<SideNavBar />
+			<AboutUs />
 		</div>
 	);
 };
