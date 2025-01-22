@@ -1,9 +1,10 @@
-import AboutUs from "./components/aboutus/aboutus";
-
-export default function App() {
-	return (
-		<div>
-			<AboutUs />
-		</div>
-	);
-};
+import React from "react";
+import "./App.css";
+import Home from "./components/home/home"
+export default function app() {
+  return (
+    <div>
+      <Home/>
+    </div>
+  );
+}

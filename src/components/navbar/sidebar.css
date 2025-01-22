@@ -67,7 +67,7 @@
 }
 
 .hamburger-in:hover span:nth-child(2) {
-    width: 40px;
+    color: var(--dark);
 }
 
 .hamburger-in:hover span:nth-child(3) {
