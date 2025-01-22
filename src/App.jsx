@@ -1,10 +1,10 @@
 import React from "react";
 import "./App.css";
-import Home from "./components/home/home"
+import Contactus from "./components/contactus/contactus"
 export default function app() {
   return (
     <div>
-      <Home/>
+      <Contactus/>
     </div>
   );
 }
