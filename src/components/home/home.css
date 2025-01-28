@@ -15,7 +15,6 @@ body {
   margin: auto;
   overflow: hidden;
   background-color: var(--light);
-  height: 100vh;
 }
 
 .slider {
@@ -131,15 +130,11 @@ body {
   padding: 20px;
   border-radius: 30px;
   margin: 20px;
-  cursor: pointer;
 }
-.quote h1:hover{
-  background-color: var(--light);
-  color: var(--primary);
-  border: 2px solid var(--dark);
-}
+
 .steps {
   padding: 0px 20px;
+  height: fit-content;
   background-color: var(--light);
 }
 
@@ -149,6 +144,7 @@ body {
   flex-wrap: wrap;
   padding: 10px;
   margin: 10px;
+  height: fit-content;
 }
 
 .cards > div {
