@@ -4,9 +4,10 @@
     background-color: var(--dark);
     width: 300px;
     height: 100vh;
-    position: relative;
+    position: absolute;
     color: var(--light);
     transition: 0.4s;
+    z-index: 1000;
 }
 
 .side-nav-container-NX {
@@ -174,6 +175,32 @@
         width: 100%;
     }
     .hamburger-out{
-        margin-left: 12px;
+        margin-left: 20px;
+    }
+}
+@media screen and (max-width: 768px){
+    .side-nav-container{
+        z-index: 1000;
+        position: absolute;
+    }
+    .hamburger-out{
+        margin-left: 20px;
+    }
+    .nav-menu{
+        gap: 5px;
+        margin: 0%;
+    }
+}
+@media screen and (max-width: 480px){
+    .side-nav-container{
+        z-index: 1000;
+    }
+    .nav-heading{
+        padding: 0%;
+        display: none;
+    }
+    .nav-menu{
+        gap: 5px;
+        margin: 0%;
     }
 }

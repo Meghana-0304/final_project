@@ -140,11 +140,10 @@ body {
 
 .cards {
   display: flex;
-  justify-content: space-around;
   flex-wrap: wrap;
+  justify-content: space-around;
   padding: 10px;
   margin: 10px;
-  height: fit-content;
 }
 
 .cards > div {
@@ -154,12 +153,12 @@ body {
   margin: 10px;
   border-radius: 5px;
   flex: 1 1 300px;
-  max-width: 45%;
-  max-height: 20%;
+  max-width: 75%;
   border-radius: 20px;
   border: 2px solid var(--dark);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
   cursor: pointer;
+  justify-content: space-around;
 }
 .cards > div:hover{
   transform: translateY(-10px);
@@ -174,8 +173,8 @@ body {
 
 .advantages {
   display: flex;
-  justify-content: space-around;
   flex-wrap: wrap;
+  justify-content: space-around;
   padding: 10px;
   margin: 10px;
 }
@@ -187,11 +186,12 @@ body {
   margin: 10px;
   border-radius: 5px;
   flex: 1 1 300px;
-  max-width: 45%;
+  max-width: 75%;
   border-radius: 20px;
   border: 2px solid var(--dark);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
   cursor: pointer;
+  justify-content: space-around;
 }
 .advantages > div:hover{
   transform: translateY(-10px);
@@ -208,4 +208,101 @@ body {
   color: var(--light);
   padding: 10px;
   text-align: center;
+}
+@media screen and (max-width: 480px){
+  .homepage{
+    margin-left: 25px;
+  }
+  .steps h1{
+    font-size: 30px;
+  }
+  .cards{
+    padding: 0%;
+    margin: 0%;
+  }
+  .cards > div {
+    padding: 0%;
+    margin: 0%;
+  }
+}
+@media screen and (width: 768px){
+  .homepage{
+    margin-left: 0px;
+  }
+  .about-us{
+    padding: 15px;
+  }
+  .about-us h2{
+    font-size: 20px;
+    padding: 0%;
+  }
+  .steps h1{
+    font-size: 30px;
+  }
+  .cards{
+    padding: 0%;
+    margin: 0%;
+    gap: 20px;
+  }
+  .cards > div {
+    padding: 10px;
+    margin: 0%;
+  }
+  .quote h1{
+    font-size: 20px;
+  }
+  .video-container{
+    padding: 0%;
+  }
+  .highlights h1{
+    font-size: 30px;
+  }
+  .advantages{
+    padding: 0%;
+    margin: 0%;
+    gap: 20px;
+  }
+  .advantages > div {
+    padding: 10px;
+    margin: 0%;
+  }
+}
+@media screen and (max-width: 1024px){
+  .about-us{
+    padding: 15px;
+  }
+  .about-us h2{
+    font-size: 20px;
+    padding: 0%;
+  }
+  .steps h1{
+    font-size: 30px;
+  }
+  .cards{
+    padding: 0%;
+    margin: 0%;
+    gap: 20px;
+  }
+  .cards > div {
+    padding: 10px;
+    margin: 0%;
+  }
+  .quote h1{
+    font-size: 20px;
+  }
+  .video-container{
+    padding: 0%;
+  }
+  .highlights h1{
+    font-size: 30px;
+  }
+  .advantages{
+    padding: 0%;
+    margin: 10px;
+    gap: 20px;
+  }
+  .advantages > div {
+    padding: 10px;
+    margin: 0%;
+  }
 }
