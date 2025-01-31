@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import "./home.css";
 
+import MNavbar from "../Mobile-navbar/MNavbar";
+
 const videos = [
   "./images/slide-1.mp4",
   "./images/slide-2.mp4",
@@ -38,6 +40,7 @@ const VideoSlider = () => {
 
   return (
     <div className="homepage">
+      
       <div className="slider-container">
         <div
           className="slider"
@@ -187,4 +190,4 @@ const Footer = () => {
   );
 };
 
-export default VideoSlider;
+export default VideoSlider;                                                                                                                                      

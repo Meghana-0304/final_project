@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
 import NavBar from "./components/navbar/sidebar";
@@ -12,6 +12,7 @@ import Profile from "./components/profile/profile";
 import Contactus from "./components/contactus/contactus"
 
 export default function App() {
+
   return (
     <Router>
       <div className="App">

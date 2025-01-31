@@ -7,7 +7,7 @@
 }
 
 .NavBar {
-  width: 250px; /* Fixed width for the navbar */
+  width: 30vw; /* Fixed width for the navbar */
   height: 100vh; /* Make it occupy the full height of the viewport */
   position: fixed; /* Ensure the navbar stays fixed on the left */
   top: 0; /* Stick to the top of the screen */
@@ -17,7 +17,9 @@
 }
 
 .main-content {
-  flex-grow: 1; /* Allow the content to take the remaining space */
+  flex: 1;
   overflow-y: auto; /* Enable vertical scrolling for the content */
   height: 100vh; /* Ensure it matches the viewport height */
+  align-items: flex-end;
+  right: 0;
 }

@@ -6,7 +6,6 @@
     height: 100vh;
     position: relative;
     color: var(--light);
-
     transition: 0.4s;
 }
 
@@ -75,7 +74,7 @@
     transform: translateY(-4px) rotate(25deg);
 }
 
-.hamburger-out{
+.hamburger-out {
     margin-left: 20px;
 }
 
@@ -127,8 +126,10 @@
     width: auto;
     height: 30px;
     margin-top: 13px;
-    border-radius: 100%;/* Makes the image circular */
-    object-fit: cover; /* Ensures the image fits within the circle */
+    border-radius: 100%;
+    /* Makes the image circular */
+    object-fit: cover;
+    /* Ensures the image fits within the circle */
 }
 
 .dropdown-menu {
@@ -155,4 +156,24 @@
 .dropdown-menu a:hover {
     background-color: var(--dark);
     color: white;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 1024px) {
+    .nav-menu , .menu-item , .menu-item-NX{
+        gap: 20px;
+        font-size: 20px;
+        align-items: center;
+        text-align: center;
+    }
+    .nav-heading{
+        margin-left: 0px;
+        padding: 20px 0px 0px 0px;
+    }
+    .nav-brand{
+        width: 100%;
+    }
+    .hamburger-out{
+        margin-left: 12px;
+    }
 }
