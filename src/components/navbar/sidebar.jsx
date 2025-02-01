@@ -39,9 +39,8 @@ const SideNavBar = () => {
 
     return (
         <div
-            className={`sidebar ${
-                isExpanded ? "side-nav-container" : "side-nav-container side-nav-container-NX"
-            }`}
+            className={`sidebar ${isExpanded ? "side-nav-container" : "side-nav-container side-nav-container-NX"
+                }`}
         >
             <div className="nav-upper">
                 <div className="nav-heading">
@@ -51,9 +50,8 @@ const SideNavBar = () => {
                         </div>
                     )}
                     <button
-                        className={`hamburger ${
-                            isExpanded ? "hamburger-in" : "hamburger-out"
-                        }`}
+                        className={`hamburger ${isExpanded ? "hamburger-in" : "hamburger-out"
+                            }`}
                         onClick={() => setExpendState(!isExpanded)}
                     >
                         <span></span>
@@ -67,9 +65,8 @@ const SideNavBar = () => {
                             <div
                                 ref={dropdownRef}
                                 key={text}
-                                className={`menu-item ${
-                                    isExpanded ? "" : "menu-item-NX"
-                                }`}
+                                className={`menu-item ${isExpanded ? "" : "menu-item-NX"
+                                    }`}
                                 onClick={() => setAccountMenuOpen(!isAccountMenuOpen)}
                             >
                                 <img
@@ -78,24 +75,13 @@ const SideNavBar = () => {
                                     alt="profile-icon"
                                 />
                                 {isExpanded && <p>{text}</p>}
-                                {isAccountMenuOpen && (
-                                    <div className="dropdown-menu">
-                                        <NavLink to="/settings" className="dropdown-link">
-                                            Settings
-                                        </NavLink>
-                                        <NavLink to="/logout" className="dropdown-link">
-                                            Logout
-                                        </NavLink>
-                                    </div>
-                                )}
                             </div>
                         ) : (
                             <NavLink
                                 to={path}
                                 key={text}
-                                className={`menu-item ${
-                                    isExpanded ? "" : "menu-item-NX"
-                                }`}
+                                className={`menu-item ${isExpanded ? "" : "menu-item-NX"
+                                    }`}
                                 activeClassName="active"
                             >
                                 <img className="menu-item-icon" src={icon} alt={`${text} icon`} />

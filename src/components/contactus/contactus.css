@@ -16,6 +16,7 @@ body {
     justify-content: center;
     align-items: center;
     max-width: 100%;
+    margin-left: 85px;
 }
 
 .contactus-page h1 {
@@ -113,7 +114,57 @@ body {
     background-color: red;
 }
 .error-message{
-    font-size: 0.7rem;
+    font-size: 10px;
     margin: 0%;
     width: 100%;
+}
+@media screen and (min-width: 320px) and (max-width: 480px){
+    .contactus-page{
+        margin-left: 55px;
+        padding: 10px
+    }
+    .contact{
+        padding: 0px;
+        flex-direction: column;
+    }
+    .contactus-page h1{
+        font-size: 17px;
+        margin: 10px;
+    }
+    .form-group{
+        font-size: 10px;
+    }
+    .form-group textarea{
+        font-size: 10px;
+    }
+    .form-group input{
+        font-size: 10px;
+    }
+    .submit-button{
+        font-size: 15px;
+    }
+    .error-message{
+        font-size: 7px;
+    }
+}
+@media screen and (width: 768px){
+    .contactus-page{
+        margin-left: 55px;
+        padding: 10px;
+    }
+    .contact{
+        flex-direction: column;
+        padding: 0%;
+        width: 600px;
+    }
+}
+@media screen and (min-width: 800px) and (max-width:884px){
+    .contactus-page{
+        padding: 10px;
+    }
+    .contact{
+        flex-direction: column;
+        padding: 0%;
+        width: 650px;
+    }
 }
