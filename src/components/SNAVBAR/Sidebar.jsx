@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import { NavLink } from "react-router-dom";
-import "./sidebar.css";
+import "./Sidebar.css";
 
 const SideNavBar = () => {
     const [isExpanded, setExpendState] = useState(false);

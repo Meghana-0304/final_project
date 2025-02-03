@@ -289,9 +289,6 @@ body {
   }
 }
 @media screen and (width: 768px){
-  .homepage{
-    margin-left: 55px;
-  }
   .about-us{
     padding: 15px;
   }

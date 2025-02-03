@@ -1,6 +1,76 @@
-.mainpage{
+.trending-page {
+    margin-left: 85px;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
+}
+
+.Upper-Navbar {
+    display: flex;
+    width: 95%;
+    padding: 10px;
+    gap: 10px;
+    align-items: center;
+    justify-content: space-around;
+    background-color: var(--light);
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+    width: 70%;
+    /* Takes 2/3 of the space */
+    position: relative;
+}
+
+.search-input {
+    width: 100%;
+    padding: 10px 40px 10px 10px;
+    border: 2px solid var(--dark);
+    border-radius: 15px;
+    font-size: 16px;
+    outline: none;
+}
+
+.search-icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.search-icon img {
+    width: 20px;
+    /* Adjust size of search icon */
+    height: 20px;
+}
+
+.filter-btn {
+    width: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--primary);
+    color: var(--light);
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.filter-btn:hover {
+    background: var(--dark);
+}
+
+.filter-icon {
+    width: 20px;
+    /* Adjust size of filter icon */
+    height: 20px;
+}
+
+.filter-text {
+    font-size: 16px;
+    font-weight: bold;
 }

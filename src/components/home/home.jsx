@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./home.css";
-
-import MNavbar from "../Mobile-navbar/MNavbar";
+import "./Home.css";
 
 const videos = [
   "./images/slide-1.mp4",

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./contactus.css";
+import "./Contactus.css";
 import emailjs from '@emailjs/browser';
 
 export default function Contactus() {

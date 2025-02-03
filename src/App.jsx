@@ -1,15 +1,15 @@
-import React, { useState } from "react";
+import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
-import NavBar from "./components/navbar/sidebar";
-import Home from "./components/home/home";
-import Trending from "./components/trending/trending";
-import Workshops from "./components/workshops/workshops";
-import Internships from "./components/internship/internship";
-import Jobs from "./components/jobs/jobs";
-import Notifications from "./components/notifications/notifications";
-import Profile from "./components/profile/profile";
-import Contactus from "./components/contactus/contactus"
+import NavBar from "./components/SNAVBAR/Sidebar";
+import Home from "./components/HOME/Home";
+import Trending from "./components/TRENDING/Trending";
+import Workshops from "./components/WORKSHOPS/Workshops";
+import Internships from "./components/INTERNSHIP/Internship";
+import Jobs from "./components/JOBS/Jobs";
+import Notifications from "./components/NOTIFICATIONS/Notifications";
+import Profile from "./components/PROFILE/Profile";
+import Contactus from "./components/CONTACTUS/Contactus"
 
 export default function App() {
 
@@ -29,7 +29,7 @@ export default function App() {
             <Route path="/jobs" element={<Jobs />} />
             <Route path="/notifications" element={<Notifications />} />
             <Route path="/profile" element={<Profile />} />
-            <Route path="/contactus" element={<Contactus/>} />
+            <Route path="/contactus" element={<Contactus />} />
           </Routes>
         </div>
       </div>

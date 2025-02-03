@@ -1,5 +1,5 @@
 import React from "react";
-import "./notifications.css";
+import "./Notifications.css";
 
 export default function Notifications({ isOpen, onClose }) {
   return (
