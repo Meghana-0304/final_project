@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
 import NavBar from "./components/SNAVBAR/Sidebar";
+import TNavbar from "./components/NAVBAR/Navbar"
 import Home from "./components/HOME/Home";
 import Trending from "./components/TRENDING/Trending";
 import Workshops from "./components/WORKSHOPS/Workshops";
@@ -18,6 +19,7 @@ export default function App() {
       <div className="App">
         {/* Sidebar Navigation */}
         <NavBar />
+        <TNavbar />
 
         {/* Main Content Area */}
         <div className="main-content">

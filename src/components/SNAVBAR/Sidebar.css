@@ -22,6 +22,8 @@
     /* border: 2px solid white; */
     display: grid;
     width: auto;
+    gap: 20px;
+    font-size: 20px;
 }
 
 .nav-heading {
@@ -33,10 +35,12 @@
 .nav-brand {
     display: flex;
     color: var(--light);
+    justify-content: center;
+    align-items: center;
 }
 
 .nav-brand img {
-    width: 230px;
+    height: 40px;
 }
 
 .hamburger {
@@ -95,8 +99,7 @@
 
 .nav-menu {
     grid-template-rows: repeat(7, 1fr);
-    margin-top: 20px;
-    gap: 3px;
+    margin: 20px 0px;
 }
 
 .menu-item {
@@ -105,7 +108,7 @@
     color: var(--light);
     text-decoration: none;
     text-transform: uppercase;
-    margin: auto 20px;
+    margin: auto 10px;
     border-radius: 10px;
 }
 
@@ -118,16 +121,16 @@
 }
 
 .menu-item img {
-    width: 30px;
+    width: 40px;
     padding: 0 20px;
     color: white;
 }
 
 .profile-circle {
     width: auto;
-    height: 30px;
-    margin-top: 13px;
+    height: 40px;
     border-radius: 100%;
+    margin-top: 10px;
     /* Makes the image circular */
     object-fit: cover;
     /* Ensures the image fits within the circle */
@@ -136,46 +139,51 @@
 
 /* Responsive Design */
 @media screen and (max-width: 1024px) {
-    .nav-menu , .menu-item , .menu-item-NX{
-        gap: 20px;
+
+    .nav-menu,
+    .menu-item,
+    .menu-item-NX {
+        gap: 30px;
         font-size: 20px;
         align-items: center;
         text-align: center;
     }
-    .nav-heading{
+
+    .nav-heading {
         margin-left: 0px;
         padding: 20px 0px 0px 0px;
     }
-    .nav-brand{
+
+    .nav-brand {
         width: 100%;
     }
-    .hamburger-out{
+
+    .hamburger-out {
         margin-left: 20px;
     }
+
+    .profile-circle{
+        margin-top: 0px;
+    }
 }
-@media screen and (min-width: 768px) and (max-width:884px){
-    .side-nav-container{
+
+@media screen and (min-width: 768px) and (max-width:884px) {
+    .side-nav-container {
         z-index: 1000;
         position: absolute;
     }
-    .hamburger-out{
+
+    .hamburger-out {
         margin-left: 20px;
     }
-    .nav-menu{
-        gap: 5px;
-        margin: 0%;
+
+    .nav-menu {
+        gap: 25px;
     }
 }
-@media screen and (min-width:320px) and (max-width: 480px){
-    .side-nav-container{
-        z-index: 1000;
-    }
-    .nav-heading{
-        padding: 0%;
+
+@media screen and (min-width: 320px) and (max-width: 480px) {
+    .side-nav-container {
         display: none;
-    }
-    .nav-menu{
-        gap: 5px;
-        margin: 0%;
     }
 }

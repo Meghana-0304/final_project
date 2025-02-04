@@ -1,10 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { NavLink } from "react-router-dom";
 import "./Navbar.css";
 
 const Navbar = () => {
     const [isMobile, setIsMobile] = useState(window.innerWidth <= 480);
     const [isMenuOpen, setIsMenuOpen] = useState(false); // For top navbar menu
+    const [isAccountMenuOpen, setAccountMenuOpen] = useState(false); // Account dropdown state
+    const dropdownRef = useRef(null); // Reference for the dropdown container
 
     // Function to check screen size on window resize
     useEffect(() => {
@@ -16,6 +18,18 @@ const Navbar = () => {
         return () => window.removeEventListener("resize", handleResize);
     }, []);
 
+    // Close dropdown when clicking outside
+    useEffect(() => {
+        const handleOutsideClick = (event) => {
+            if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+                setAccountMenuOpen(false);
+            }
+        };
+
+        document.addEventListener("mousedown", handleOutsideClick);
+        return () => document.removeEventListener("mousedown", handleOutsideClick);
+    }, []);
+
     const menuItems = [
         { text: "Home", icon: "icons/home.svg", path: "/" },
         { text: "Trending", icon: "icons/trending.svg", path: "/trending" },
@@ -23,7 +37,7 @@ const Navbar = () => {
         { text: "Internships", icon: "icons/internship.svg", path: "/internship" },
         { text: "Jobs", icon: "icons/job.svg", path: "/jobs" },
         { text: "Notifications", icon: "icons/notification.svg", path: "/notifications" },
-        { text: "Account", icon: "images/profile.jpg", path: "/profile" },
+        { text: "Account", icon: "images/profile.png", path: "/profile" },
         { text: "Contact us", icon: "icons/contactus.svg", path: "/contactus" },
     ];
 
@@ -47,27 +61,27 @@ const Navbar = () => {
                     <div className={`mobile-side-menu ${isMenuOpen ? "open" : ""}`}>
                         <button className="close-btn" onClick={() => setIsMenuOpen(false)}>✖</button>
                         <ul>
-                            {menuItems.map(({ text, path }) => (
-                                <li key={text}>
-                                    <NavLink to={path} onClick={() => setIsMenuOpen(false)}>{text}</NavLink>
-                                </li>
-                            ))}
+                            {menuItems.map(({ text, icon, path }) =>
+                                text === "Account" ? (
+                                    <li key={text} ref={dropdownRef} className="menu-items">
+                                        <div className="account-menu" onClick={() => setAccountMenuOpen(!isAccountMenuOpen)}>
+                                            <img className="profile" src={icon} alt="profile-icon" />
+                                            <span className="menu-text">{text}</span>
+                                        </div>
+                                    </li>
+                                ) : (
+                                    <li key={text} className="menu-items">
+                                        <NavLink to={path} onClick={() => setIsMenuOpen(false)}>
+                                            <img src={icon} alt={`${text} icon`} className="menu-icon" />
+                                            <span className="menu-text">{text}</span>
+                                        </NavLink>
+                                    </li>
+                                )
+                            )}
                         </ul>
                     </div>
                 </>
-            ) : (
-                /* ✅ SIDE NAVBAR (DESKTOP VIEW) */
-                <div className="sidebar">
-                    <div className="nav-menu">
-                        {menuItems.map(({ text, icon, path }) => (
-                            <NavLink to={path} key={text} className="menu-item">
-                                <img className="menu-item-icon" src={icon} alt={`${text} icon`} />
-                                <p>{text}</p>
-                            </NavLink>
-                        ))}
-                    </div>
-                </div>
-            )}
+            ) : null}
         </>
     );
 };

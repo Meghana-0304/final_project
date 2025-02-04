@@ -212,14 +212,14 @@ body {
 }
 @media screen and (min-width: 320px) and (max-width: 480px){
   .body{
-    padding: 5px;
+    padding: 0px;
   }
   .homepage{
     margin-left: 0px;
+    margin-top: 55px;
   }
   .slide{
     padding: 10px;
-    z-index: 999;
   }
   .prev ,  .next{
     display: none;
@@ -229,6 +229,7 @@ body {
   }
   .about-us{
     padding: 10px;
+    margin: 10px;
   }
   .about-us h1{
     font-size: 15px;

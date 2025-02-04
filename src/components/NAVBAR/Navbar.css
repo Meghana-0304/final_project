@@ -2,28 +2,39 @@
 .top-navbar {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-start;
     height: 60px;
-    background-color: #333;
-    padding: 0 15px;
+    background-color: var(--dark);
     position: fixed;
     width: 100%;
     top: 0;
     left: 0;
     z-index: 1000;
+    padding: 0 15px;
 }
 
+/* ✅ Hamburger Menu (☰) */
 .menu-icon {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
     cursor: pointer;
 }
 
 .menu-icon span {
     width: 25px;
     height: 3px;
-    background-color: #fff;
+    background-color: var(--light);
     margin: 4px 0;
+}
+
+/* ✅ Logo in Navbar */
+.logo img {
+    height: 50px;
+    margin-left: 20px;
 }
 
 /* ✅ Mobile Side Menu */
@@ -31,87 +42,112 @@
     position: fixed;
     top: 0;
     left: -100%;
+    /* Hidden by default */
     width: 250px;
     height: 100vh;
-    background-color: #222;
-    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.5);
+    background-color: var(--dark);
+    box-shadow: 2px 0 10px var(--gray);
     transition: left 0.3s ease-in-out;
     display: flex;
     flex-direction: column;
+    overflow-y: auto;
     padding-top: 60px;
 }
 
 .mobile-side-menu.open {
     left: 0;
+    /* Slide in */
+    z-index: 1000;
+    padding-top: 30px;
 }
 
-/* Close Button */
+/* ✅ Close Button (✖) */
 .close-btn {
     position: absolute;
     top: 10px;
-    right: 15px;
+    right: 10px;
     background: none;
     border: none;
-    color: white;
+    color: var(--light);
     font-size: 24px;
     cursor: pointer;
 }
 
-/* Mobile Menu Items */
+.close-btn:hover {
+    color: var(--primary);
+}
+
+/* ✅ Mobile Menu Items */
 .mobile-side-menu ul {
     list-style-type: none;
     padding: 0;
     margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    gap: 7px;
+    overflow-y: auto;
 }
 
-.mobile-side-menu ul li {
-    padding: 15px;
-    text-align: center;
-}
-
-.mobile-side-menu ul li a {
-    color: white;
-    text-decoration: none;
-    font-size: 18px;
-    display: block;
+/* ✅ Individual Menu Item */
+.menu-items {
+    width: 70%;
+    padding: 5px;
+    margin: 10px;
+    border-radius: 8px;
     transition: background 0.3s;
 }
 
-.mobile-side-menu ul li a:hover {
-    background: #444;
+.menu-items:hover {
+    background-color: var(--primary);
 }
 
-/* ✅ Sidebar for Desktop */
-.sidebar {
-    width: 250px;
-    height: 100vh;
-    background: #222;
-    position: fixed;
-    left: 0;
-    top: 0;
-    display: flex;
-    flex-direction: column;
-}
-
-.nav-menu {
-    padding-top: 60px;
-}
-
-.menu-item {
+/* ✅ Menu Item Links */
+.menu-items a {
     display: flex;
     align-items: center;
-    padding: 15px;
-    color: white;
     text-decoration: none;
+    color: var(--light);
+    font-size: 18px;
+    width: 100%;
 }
 
-.menu-item img {
-    width: 24px;
-    height: 24px;
-    margin-right: 10px;
+/* ✅ Menu Icons */
+.menu-icon {
+    width: 35px;
+    height: 35px;
+    margin-right: 15px;
 }
 
-/* ✅ Responsive */
+/* ✅ Profile Account Menu */
+.account-menu {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    cursor: pointer;
+    width: 100%;
+}
+
+.account-btn {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.profile {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    margin-right: 15px;
+    margin-top: 0px;
+}
+
+.menu-text {
+    color: var(--light);
+}
+
+/* ✅ Responsive Design */
 @media screen and (min-width: 320px) and (max-width: 480px) {
     .top-navbar {
         height: 55px;
@@ -120,26 +156,22 @@
 
     .menu-icon span {
         width: 22px;
-        height: 2.5px;
+        height: 3px;
     }
 
     .logo img {
-        height: 35px;
+        height: 45px;
     }
 
     .mobile-side-menu {
         width: 220px;
     }
 
-    .mobile-side-menu ul li a {
+    .menu-items a {
         font-size: 16px;
     }
 
     .close-btn {
         font-size: 22px;
-    }
-
-    .sidebar {
-        display: none; /* Hide sidebar for mobile */
     }
 }
