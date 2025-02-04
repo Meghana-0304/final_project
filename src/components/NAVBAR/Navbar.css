@@ -1,0 +1,145 @@
+/* ✅ Top Navbar (for mobile) */
+.top-navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+    background-color: #333;
+    padding: 0 15px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.menu-icon {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.menu-icon span {
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    margin: 4px 0;
+}
+
+/* ✅ Mobile Side Menu */
+.mobile-side-menu {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 250px;
+    height: 100vh;
+    background-color: #222;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.5);
+    transition: left 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    padding-top: 60px;
+}
+
+.mobile-side-menu.open {
+    left: 0;
+}
+
+/* Close Button */
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* Mobile Menu Items */
+.mobile-side-menu ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.mobile-side-menu ul li {
+    padding: 15px;
+    text-align: center;
+}
+
+.mobile-side-menu ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    display: block;
+    transition: background 0.3s;
+}
+
+.mobile-side-menu ul li a:hover {
+    background: #444;
+}
+
+/* ✅ Sidebar for Desktop */
+.sidebar {
+    width: 250px;
+    height: 100vh;
+    background: #222;
+    position: fixed;
+    left: 0;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.nav-menu {
+    padding-top: 60px;
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    color: white;
+    text-decoration: none;
+}
+
+.menu-item img {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+}
+
+/* ✅ Responsive */
+@media screen and (min-width: 320px) and (max-width: 480px) {
+    .top-navbar {
+        height: 55px;
+        padding: 0 10px;
+    }
+
+    .menu-icon span {
+        width: 22px;
+        height: 2.5px;
+    }
+
+    .logo img {
+        height: 35px;
+    }
+
+    .mobile-side-menu {
+        width: 220px;
+    }
+
+    .mobile-side-menu ul li a {
+        font-size: 16px;
+    }
+
+    .close-btn {
+        font-size: 22px;
+    }
+
+    .sidebar {
+        display: none; /* Hide sidebar for mobile */
+    }
+}
