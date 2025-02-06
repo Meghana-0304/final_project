@@ -49,7 +49,7 @@ const Navbar = () => {
             {isMobile ? (
                 <>
                     <nav className="top-navbar">
-                        <div className="menu-icon" onClick={() => setIsMenuOpen(true)}>
+                        <div className="menu-icon menu-open" onClick={() => setIsMenuOpen(true)}>
                             <span></span>
                             <span></span>
                             <span></span>

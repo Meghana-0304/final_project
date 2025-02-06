@@ -120,6 +120,31 @@
     margin-right: 15px;
 }
 
+.menu-icon span {
+    display: block;
+    height: 4px;
+    width: 100%;
+    background-color: var(--light);
+    transition: all 0.3s ease-in-out;
+    border-radius: 2px;
+}
+
+.menu-icon:hover span {
+    background-color: var(--primary);
+}
+
+.menu-open:hover span:nth-child(1) {
+    transform: translateY(1px) rotate(25deg);
+}
+
+.menu-open:hover span:nth-child(2) {
+    display: none;
+}
+
+.menu-open:hover span:nth-child(3) {
+    transform: translateY(-1px) rotate(-25deg);
+}
+
 /* ✅ Profile Account Menu */
 .account-menu {
     display: flex;
