@@ -23,7 +23,7 @@ body {
     font-size: 2.5rem;
     color: var(--light);
     margin-bottom: 20px;
-    margin: 20px;
+    margin: 30px;
     border: solid 3px var(--dark);
     width: 50%;
     border-radius: 50px;
@@ -39,12 +39,13 @@ body {
     border-radius: 30px;
     width: 100%;
     height: 50%;
-    max-width: 900px;
+    max-width: 1000px;
     margin: 0%;
     overflow: hidden;
     background-color: var(--light);
     border: solid 3px var(--dark);  
     padding: 0px 30px 0px 30px; 
+    gap: 20px;
 }
 
 /* Left section: Image styling */
@@ -55,13 +56,14 @@ body {
     align-items: center;
     border-radius: 30px;
     width: 50%;
+    margin: 20px;
 }
 
 .contact-img {
-    max-width: 100%;
+    max-width: 120%;
     height: auto;
     object-fit: cover;
-    padding: 5px;
+    padding: 15px;
 }
 
 /* Right section: Contact form */
@@ -72,6 +74,7 @@ body {
     justify-content: center;
     align-items: center;
     width: 70%;
+    margin: 5%;
 }
 .form-group{
     display: flex;
@@ -80,13 +83,13 @@ body {
     align-items: center;
     gap: 5px;
     padding: 7.5px 0px 7.5px 0px;
-    font-size: 15px;
+    font-size: 20px;
     color: var(--primary);
 }
 .form-group input{
     border: solid 2px var(--dark);
     border-radius: 20px;
-    font-size: 15px;
+    font-size: 20px;
     padding:10px;
     width: 150%;
     max-width: 180%;
@@ -94,7 +97,7 @@ body {
 .form-group textarea{
     border: solid 2px var(--dark);
     border-radius: 20px;
-    font-size: 15px;
+    font-size: 20px;
     padding: 10px;
     width: 150%;
     max-width: 180%;
@@ -114,11 +117,14 @@ body {
     background-color: red;
 }
 .error-message{
-    font-size: 10px;
+    font-size: 15px;
     margin: 0%;
     width: 100%;
 }
 @media screen and (min-width: 320px) and (max-width: 480px){
+    .image{
+        margin: 0%;
+    }
     .contactus-page{
         margin-left: 0px;
         margin-top: 55px;
@@ -131,6 +137,9 @@ body {
     .contactus-page h1{
         font-size: 17px;
         margin: 10px;
+    }
+    .contactform{
+        margin: 0%;
     }
     .form-group{
         font-size: 10px;
@@ -145,10 +154,13 @@ body {
         font-size: 15px;
     }
     .error-message{
-        font-size: 7px;
+        font-size: 9px;
     }
 }
 @media screen and (width: 768px){
+    .image{
+        margin: 0%;
+    }
     .contactus-page{
         margin-left: 55px;
         padding: 10px;
@@ -158,8 +170,14 @@ body {
         padding: 0%;
         width: 600px;
     }
+    .contactform{
+        margin: 0%;
+    }
 }
 @media screen and (min-width: 800px) and (max-width:884px){
+    .image{
+        margin: 0%;
+    }
     .contactus-page{
         padding: 10px;
     }
@@ -167,5 +185,8 @@ body {
         flex-direction: column;
         padding: 0%;
         width: 650px;
+    }
+    .contactform{
+        margin: 0%;
     }
 }

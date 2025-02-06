@@ -5,6 +5,7 @@ import "./Sidebar.css";
 const SideNavBar = () => {
     const [isExpanded, setExpendState] = useState(false);
     const [isAccountMenuOpen, setAccountMenuOpen] = useState(false);
+    const sidebarRef = useRef(null);
     const dropdownRef = useRef(null); // Reference for the dropdown container
 
     const menuItems = [
@@ -19,20 +20,22 @@ const SideNavBar = () => {
         { text: "Logout", icon: "icons/logout.svg", path: "/" },
     ];
 
-    // Close dropdown when clicking outside
+    // Close dropdown and sidebar when clicking outside
     useEffect(() => {
         const handleOutsideClick = (event) => {
             if (
+                sidebarRef.current &&
+                !sidebarRef.current.contains(event.target) &&
                 dropdownRef.current &&
                 !dropdownRef.current.contains(event.target)
             ) {
+                setExpendState(false);
                 setAccountMenuOpen(false);
             }
         };
 
         document.addEventListener("mousedown", handleOutsideClick);
 
-        // Cleanup event listener on component unmount
         return () => {
             document.removeEventListener("mousedown", handleOutsideClick);
         };
@@ -40,8 +43,8 @@ const SideNavBar = () => {
 
     return (
         <div
-            className={`sidebar ${isExpanded ? "side-nav-container" : "side-nav-container side-nav-container-NX"
-                }`}
+            ref={sidebarRef}
+            className={`sidebar ${isExpanded ? "side-nav-container" : "side-nav-container side-nav-container-NX"}`}
         >
             <div className="nav-upper">
                 <div className="nav-heading">
@@ -51,8 +54,7 @@ const SideNavBar = () => {
                         </div>
                     )}
                     <button
-                        className={`hamburger ${isExpanded ? "hamburger-in" : "hamburger-out"
-                            }`}
+                        className={`hamburger ${isExpanded ? "hamburger-in" : "hamburger-out"}`}
                         onClick={() => setExpendState(!isExpanded)}
                     >
                         <span></span>
@@ -66,9 +68,11 @@ const SideNavBar = () => {
                             <div
                                 ref={dropdownRef}
                                 key={text}
-                                className={`menu-item ${isExpanded ? "" : "menu-item-NX"
-                                    }`}
-                                onClick={() => setAccountMenuOpen(!isAccountMenuOpen)}
+                                className={`menu-item ${isExpanded ? "" : "menu-item-NX"}`}
+                                onClick={() => {
+                                    setAccountMenuOpen(!isAccountMenuOpen);
+                                    setExpendState(false); // Close sidebar
+                                }}
                             >
                                 <img
                                     className="profile-circle"
@@ -81,9 +85,9 @@ const SideNavBar = () => {
                             <NavLink
                                 to={path}
                                 key={text}
-                                className={`menu-item ${isExpanded ? "" : "menu-item-NX"
-                                    }`}
+                                className={`menu-item ${isExpanded ? "" : "menu-item-NX"}`}
                                 activeClassName="active"
+                                onClick={() => setExpendState(false)} // Close sidebar when clicking a menu item
                             >
                                 <img className="menu-item-icon" src={icon} alt={`${text} icon`} />
                                 {isExpanded && <p>{text}</p>}
