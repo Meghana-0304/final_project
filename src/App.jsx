@@ -30,8 +30,9 @@ export default function App() {
             <Route path="/internship" element={<Internships />} />
             <Route path="/jobs" element={<Jobs />} />
             <Route path="/notifications" element={<Notifications />} />
-            <Route path="/profile" element={<Profile />} />
             <Route path="/contactus" element={<Contactus />} />
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/logout" element={<Home />} />
           </Routes>
         </div>
       </div>
