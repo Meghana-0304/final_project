@@ -1,37 +1,22 @@
-/* Overlay to darken background when notification card is open */
-.notification-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: var(--light);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.5s ease-in-out;
-}
-
-/* Show the notification overlay when active */
-.notification-overlay.show {
-    opacity: 1;
-    visibility: visible;
-}
-
-/* Notification Card */
+/* Floating Notification Card */
 .notification-card {
-    width: 50%; /* Covers half the screen */
-    background: var(--light);
+    position: fixed;
+    bottom: 20px;
+    right: -320px; /* Initially hidden */
+    width: 30%;
+    height: 95%;
+    background: white;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
     border-radius: 10px;
-    box-shadow: 0px 5px 15px var(--gray);
-    padding: 20px;
-    z-index: 1001;
-    max-height: 80vh;
     overflow-y: auto;
-    position: relative;
+    transition: right 0.3s ease-in-out;
+    border: solid 2px var(--dark);
+}
+
+/* Show the notification card */
+.notification-card.show {
+    right: 20px; /* Moves in from the right */
 }
 
 /* Notification Header */
@@ -39,25 +24,95 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid var(--light);
-    padding-bottom: 10px;
+    padding: 12px;
+    background:var(--dark);
 }
 
 .notification-header h2 {
     margin: 0;
-    font-size: 20px;
+    font-size: 25px;
+    color: var(--light);
 }
 
 /* Close Button */
-.close-btn {
+.close {
     background: none;
     border: none;
-    font-size: 20px;
+    font-size: 25px;
     cursor: pointer;
-    color: var(--dark);
+    color: var(--light);
+}
+
+.close:hover{
+    color: var(--primary);
 }
 
 /* Notification Content */
 .notification-content {
-    margin-top: 15px;
+    padding: 15px;
+}
+
+/* Notification Section Titles */
+.notification-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 10px 0 5px;
+    color: var(--primary);
+    border-bottom: 2px solid var(--dark);
+    padding-bottom: 5px;
+}
+
+/* Notification Item */
+.notification-item {
+    padding: 8px;
+    margin: 8px 0;
+    border-radius: 5px;
+    font-size: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.notification-item:hover {
+    background: var(--gray);
+}
+
+/* Delete Button */
+.delete {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.delete img {
+    width: 30px;
+    height: 30px;
+    transition: opacity 0.2s;
+}
+
+.delete img:hover {
+    opacity: 1;
+}
+@media screen and (min-width: 320px) and (max-width: 480px){
+    .notification-card{
+        width: 90%;
+        height: 85%;
+        z-index: 999;
+    }
+    .close{
+        display: none;
+    }
+}
+@media screen and (width: 768px){
+    .notification-card{
+        width: 83%;
+    }
+}
+@media screen and (min-width: 800px) and (max-width:884px){
+    .notification-card{
+        width: 85%;
+    }
 }

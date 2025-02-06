@@ -368,7 +368,7 @@ body {
     margin: 0%;
   }
 }
-@media screen and (min-width:1114px) and (max-width: 1024px){
+@media screen and (min-width:1024px){
   .about-us{
     padding: 15px;
   }
