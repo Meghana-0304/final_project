@@ -29,7 +29,7 @@ export default function App() {
             <Route path="/workshops" element={<Workshops />} />
             <Route path="/internship" element={<Internships />} />
             <Route path="/jobs" element={<Jobs />} />
-            <Route path="/notifications" element={<Notifications />} />
+            <Route path="/notifications" element={<Notifications isOpen={true} onClose={() => {}} />} />
             <Route path="/contactus" element={<Contactus />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/logout" element={<Home />} />
