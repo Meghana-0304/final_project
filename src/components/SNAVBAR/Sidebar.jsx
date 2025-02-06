@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import Notifications from "../NOTIFICATIONS/Notifications";
 import "./Sidebar.css";
@@ -9,6 +9,7 @@ const SideNavBar = () => {
     const [isNotificationOpen, setIsNotificationOpen] = useState(false);
     const sidebarRef = useRef(null);
     const dropdownRef = useRef(null);
+    const notificationRef = useRef(null);
 
     const menuItems = [
         { text: "Home", icon: "icons/home.svg", path: "/" },
@@ -16,18 +17,37 @@ const SideNavBar = () => {
         { text: "Workshops", icon: "icons/workshop.svg", path: "/workshops" },
         { text: "Internships", icon: "icons/internship.svg", path: "/internship" },
         { text: "Jobs", icon: "icons/job.svg", path: "/jobs" },
-        { text: "Notifications", icon: "icons/notification.svg", path: "#" }, // Keep path as "#" for opening notification
+        { text: "Notifications", icon: "icons/notification.svg", path: "#" },
         { text: "Contact us", icon: "icons/contactus.svg", path: "/contactus" },
         { text: "Account", icon: "images/profile.png", path: "/profile" },
         { text: "Logout", icon: "icons/logout.svg", path: "/" },
     ];
 
-    // Close sidebar & dropdown when clicking a menu item
-    const handleMenuClick = () => {
-        setExpendState(false);
-        setAccountMenuOpen(false);
-        setIsNotificationOpen(false); // Close notifications when a menu item is clicked
-    };
+    // ✅ Close sidebar, dropdown, and notifications when clicking anywhere outside
+    useEffect(() => {
+        const handleOutsideClick = (event) => {
+            if (
+                sidebarRef.current &&
+                !sidebarRef.current.contains(event.target) &&
+                (!dropdownRef.current || !dropdownRef.current.contains(event.target)) &&
+                (!notificationRef.current || !notificationRef.current.contains(event.target))
+            ) {
+                setExpendState(false); // Close Sidebar
+                setAccountMenuOpen(false); // Close Dropdown
+                setIsNotificationOpen(false); // Close Notifications
+            }
+        };
+
+        // ✅ Add event listener when sidebar, dropdown, or notifications are open
+        if (isExpanded || isAccountMenuOpen || isNotificationOpen) {
+            document.addEventListener("mousedown", handleOutsideClick);
+        }
+
+        // ✅ Remove event listener when component unmounts or when all menus are closed
+        return () => {
+            document.removeEventListener("mousedown", handleOutsideClick);
+        };
+    }, [isExpanded, isAccountMenuOpen, isNotificationOpen]);
 
     return (
         <>
@@ -60,7 +80,7 @@ const SideNavBar = () => {
                                     className={`menu-item ${isExpanded ? "" : "menu-item-NX"}`}
                                     onClick={() => {
                                         setAccountMenuOpen(!isAccountMenuOpen);
-                                        handleMenuClick();
+                                        setExpendState(false);
                                     }}
                                 >
                                     <img className="profile-circle" src={icon} alt="profile-icon" />
@@ -68,6 +88,7 @@ const SideNavBar = () => {
                                 </div>
                             ) : text === "Notifications" ? (
                                 <div
+                                    ref={notificationRef}
                                     key={text}
                                     className={`menu-item ${isExpanded ? "" : "menu-item-NX"}`}
                                     onClick={() => setIsNotificationOpen(true)}
@@ -81,7 +102,11 @@ const SideNavBar = () => {
                                     key={text}
                                     className={`menu-item ${isExpanded ? "" : "menu-item-NX"}`}
                                     activeClassName="active"
-                                    onClick={handleMenuClick}
+                                    onClick={() => {
+                                        setExpendState(false);
+                                        setAccountMenuOpen(false);
+                                        setIsNotificationOpen(false);
+                                    }}
                                 >
                                     <img className="menu-item-icon" src={icon} alt={`${text} icon`} />
                                     {isExpanded && <p>{text}</p>}
