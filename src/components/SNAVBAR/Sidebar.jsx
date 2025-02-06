@@ -14,8 +14,9 @@ const SideNavBar = () => {
         { text: "Internships", icon: "icons/internship.svg", path: "/internship" },
         { text: "Jobs", icon: "icons/job.svg", path: "/jobs" },
         { text: "Notifications", icon: "icons/notification.svg", path: "/notifications" },
-        { text: "Account", icon: "images/profile.png", path: "/profile" },
         { text: "Contact us", icon: "icons/contactus.svg", path: "/contactus" },
+        { text: "Account", icon: "images/profile.png", path: "/profile" },
+        { text: "Logout", icon: "icons/logout.svg", path: "/" },
     ];
 
     // Close dropdown when clicking outside
