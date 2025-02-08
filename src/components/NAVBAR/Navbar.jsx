@@ -66,10 +66,10 @@ const Navbar = () => {
                             {menuItems.map(({ text, icon, path }) =>
                                 text === "Account" ? (
                                     <li key={text} ref={dropdownRef} className="menu-items">
-                                        <div className="account-menu" onClick={() => setAccountMenuOpen(!isAccountMenuOpen)}>
+                                        <NavLink className="account-menu" onClick={() => setAccountMenuOpen(!isAccountMenuOpen)}>
                                             <img className="profile" src={icon} alt="profile-icon" />
                                             <span className="menu-text">{text}</span>
-                                        </div>
+                                        </NavLink>
                                     </li>
                                 ) : (
                                     <li key={text} className="menu-items">

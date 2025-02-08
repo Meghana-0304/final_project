@@ -99,7 +99,7 @@
 
 .nav-menu {
     grid-template-rows: repeat(7, 1fr);
-    margin:0px;
+    margin: 0px;
 }
 
 .menu-item {
@@ -110,6 +110,7 @@
     text-transform: uppercase;
     margin: auto 10px;
     border-radius: 10px;
+    cursor: pointer;
 }
 
 .menu-item-NX {
@@ -136,7 +137,6 @@
     /* Ensures the image fits within the circle */
 }
 
-
 /* Responsive Design */
 @media screen and (min-width: 1024px) {
 
@@ -160,7 +160,7 @@
         margin-left: 20px;
     }
 
-    .profile-circle{
+    .profile-circle {
         margin-top: 0px;
     }
 }

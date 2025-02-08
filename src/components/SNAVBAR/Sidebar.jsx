@@ -19,7 +19,7 @@ const SideNavBar = () => {
         { text: "Jobs", icon: "icons/job.svg", path: "/jobs" },
         { text: "Notifications", icon: "icons/notification.svg", path: "#" },
         { text: "Contact us", icon: "icons/contactus.svg", path: "/contactus" },
-        { text: "Account", icon: "images/profile.png", path: "/profile" },
+        { text: "Profile", icon: "images/profile.png", path: "/profile" },
         { text: "Logout", icon: "icons/logout.svg", path: "/" },
     ];
 
@@ -29,12 +29,10 @@ const SideNavBar = () => {
             if (
                 sidebarRef.current &&
                 !sidebarRef.current.contains(event.target) &&
-                (!dropdownRef.current || !dropdownRef.current.contains(event.target)) &&
-                (!notificationRef.current || !notificationRef.current.contains(event.target))
+                (!dropdownRef.current || !dropdownRef.current.contains(event.target)) 
             ) {
                 setExpendState(false); // Close Sidebar
                 setAccountMenuOpen(false); // Close Dropdown
-                setIsNotificationOpen(false); // Close Notifications
             }
         };
 

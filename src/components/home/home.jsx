@@ -38,7 +38,7 @@ const VideoSlider = () => {
 
   return (
     <div className="homepage">
-      
+
       <div className="slider-container">
         <div
           className="slider"
