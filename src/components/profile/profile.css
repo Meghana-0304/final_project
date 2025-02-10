@@ -6,7 +6,7 @@
 
 .profile-card {
     width: 30%;
-    margin:20px;
+    margin: 20px;
     background: white;
     border-radius: 10px;
     text-align: center;
@@ -14,15 +14,18 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.profile-card h2{
-    margin : 0px;
+.profile-card h2 {
+    margin: 0px;
 }
-.role{
+
+.role {
     margin: 0%;
 }
+
 .profile-image-container {
     position: relative;
     display: inline-block;
+    overflow: hidden;
 }
 
 .profile-image {
@@ -30,6 +33,7 @@
     height: 50%;
     border-radius: 50%;
     margin: 10px;
+    object-fit: cover;
 }
 
 .camera-icon img {
@@ -46,12 +50,18 @@ input[type="file"] {
     display: none;
 }
 
+.editable-field img {
+    position: relative;
+    height: 20px;
+    left: 50px;
+}
+
 .role {
     color: var(--primary);
 }
 
 .activity-section {
-    margin: 10px 20px 20px 20px ;
+    margin: 10px 20px 20px 20px;
     display: flex;
     color: var(--light);
     flex-direction: column;
@@ -62,15 +72,17 @@ input[type="file"] {
     align-items: center;
     text-align: center;
 }
-.activity-section h1{
+
+.activity-section h1 {
     margin: 10px 0px;
     border-bottom: var(--light);
 }
+
 .activity-section button {
     padding: 10px;
     width: 80%;
     border: none;
-    background:var(--light);
+    background: var(--light);
     color: var(--dark);
     cursor: pointer;
     border-radius: 5px;
@@ -82,34 +94,40 @@ input[type="file"] {
     background: var(--primary);
     color: var(--light);
 }
-.content-container{
+
+.content-container {
     width: 65%;
+
 }
+
 .content {
     display: flex;
     flex-direction: column;
-    justify-content: first baseline;
     gap: 10px;
     margin: 20px;
-    border: solid 3px var(--dark);
     border-radius: 10px;
+    border: solid 3px var(--dark);
+    width: auto;
+    height: 735px;
 }
 
-.profile-details{
-    display: absolute;
-    justify-content:center;
+.profile-details {
+    justify-content: center;
     align-items: center;
     text-align: center;
+    height: 100%;
 }
-.profile-details h3{
+
+.profile-details h3 {
     font-size: 40px;
 }
-.profile-details form{
-    display: grid;
-    grid-template-columns: auto auto;
-    margin: 30px 30px 10px 30px;
+
+.profile-details form {
+    display: flex;
+    flex-direction: column;
 }
-.forms{
+
+.forms {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -119,6 +137,7 @@ input[type="file"] {
     font-size: 20px;
     color: var(--primary);
 }
+
 .profile-details input {
     width: 90%;
     padding: 10px;
@@ -145,11 +164,28 @@ input[type="file"] {
     gap: 10px;
 }
 
+.jobs,
+.internships,
+.workshops {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
 .job-card,
-.workshop-card {
+.workshop-card,
+.internship-card {
     background: #f3f4f6;
     padding: 15px;
+    justify-content: center;
+    align-items: center;
     text-align: center;
     border-radius: 5px;
     cursor: pointer;
+}
+
+.jobs h3,
+.internships h3,
+.workshops h3 {
+    font-size: 40px;
 }

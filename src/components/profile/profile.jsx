@@ -4,8 +4,44 @@ import "./Profile.css";
 const Profile = () => {
     const [activeSection, setActiveSection] = useState("profile");
 
+    const [name, setName] = useState("NAME");
+    const [role, setRole] = useState("ROLE");
+    const [isEditingName, setIsEditingName] = useState(false);
+    const [isEditingRole, setIsEditingRole] = useState(false);
+
+    const [profileImage, setProfileImage] = useState("images/profile.png");
+
+    const [formData, setFormData] = useState({
+        FullName: "",
+        PhoneNumber: "",
+        Email: "",
+        Gender: "",
+        Address: "",
+    });
+
     const handleSectionChange = (section) => {
         setActiveSection(section);
+    };
+
+    const handleImageChange = (event) => {
+        const file = event.target.files[0];
+        if (file) {
+            const imageUrl = URL.createObjectURL(file);
+            setProfileImage(imageUrl);
+        }
+    };
+
+    const handleInputChange = (e) => {
+        const { name, value } = e.target;
+        setFormData((prevData) => ({
+            ...prevData,
+            [name]: value,
+        }));
+    };
+
+    const handleUpdateClick = () => {
+        console.log("Updated Data:", formData);
+        alert("Profile Updated Successfully!");
     };
 
     return (
@@ -13,18 +49,64 @@ const Profile = () => {
             {/* Left Panel - Profile */}
             <div className="profile-card">
                 <div className="profile-image-container">
-                    <img
-                        src="images/profile.png"
-                        alt="Profile"
-                        className="profile-image"
-                    />
+                    <img src={profileImage} alt="Profile" className="profile-image" />
                     <label htmlFor="file-upload" className="camera-icon">
                         <img src="icons/camera.svg" alt="Camera" />
                     </label>
-                    <input type="file" id="file-upload" accept="image/*" />
+                    <input
+                        type="file"
+                        id="file-upload"
+                        accept="image/*"
+                        onChange={handleImageChange}
+                        style={{ display: "none" }}
+                    />
                 </div>
-                <h2>NAME</h2>
-                <p className="role">ROLE</p>
+
+                {/* Editable Name with Pencil Icon */}
+                <div className="editable-field">
+                    {isEditingName ? (
+                        <input
+                            type="text"
+                            value={name}
+                            onChange={(e) => setName(e.target.value)}
+                            onBlur={() => setIsEditingName(false)}
+                            autoFocus
+                        />
+                    ) : (
+                        <h2>
+                            {name}
+                            <img
+                                src="icons/edit-dark.svg"
+                                alt="Edit"
+                                className="edit-icon"
+                                onClick={() => setIsEditingName(true)}
+                            />
+                        </h2>
+                    )}
+                </div>
+
+                {/* Editable Role with Pencil Icon */}
+                <div className="editable-field">
+                    {isEditingRole ? (
+                        <input
+                            type="text"
+                            value={role}
+                            onChange={(e) => setRole(e.target.value)}
+                            onBlur={() => setIsEditingRole(false)}
+                            autoFocus
+                        />
+                    ) : (
+                        <p className="role">
+                            {role}
+                            <img
+                                src="icons/edit-primary.svg"
+                                alt="Edit"
+                                className="edit-icon"
+                                onClick={() => setIsEditingRole(true)}
+                            />
+                        </p>
+                    )}
+                </div>
 
                 <div className="activity-section">
                     <h1>MY ACTIVITY</h1>
@@ -62,85 +144,43 @@ const Profile = () => {
                         <div className="profile-details">
                             <h3>Profile Details</h3>
                             <form>
-                                <div className="forms">
-                                    <label htmlFor="fullName">FULL NAME:</label>
-                                    <input type="text" name="First Name" placeholder="First Name" />
-                                </div>
-                                <div className="forms">
-                                    <label htmlFor="fullName">PHONE NUMBER:</label>
-                                    <input type="text" placeholder="Phone Number" />
-                                </div>
-                                <div className="forms">
-                                    <label htmlFor="fullName">MIDDLE NAME:</label>
-                                    <input type="text" placeholder="Middle Name" />
-                                </div>
-                                <div className="forms">
-                                    <label htmlFor="fullName">EMAIL ADDRESS:</label>
-                                    <input type="text" placeholder="Email Address" />
-                                </div>
-                                <div className="forms">
-                                    <label htmlFor="fullName">LAST NAME:</label>
-                                    <input type="text" placeholder="Last Name" />
-                                </div>
-                                <div className="forms">
-                                    <label htmlFor="fullName">CITY:</label>
-                                    <input type="text" placeholder="City" />
-                                </div>
-                                <div className="forms">
-                                    <label htmlFor="fullName">GENDER:</label>
-                                    <input type="text" placeholder="Gender" />
-                                </div>
-                                <div className="forms">
-                                    <label htmlFor="fullName">STATE:</label>
-                                    <input type="text" placeholder="State" />
-                                </div>
-                                <div className="forms">
-                                    <label htmlFor="fullName">PINCODE:</label>
-                                    <input type="text" placeholder="Pincode" />
-                                </div>
-                                <div className="forms">
-                                    <label htmlFor="fullName">COUNTRY:</label>
-                                    <input type="text" placeholder="Country" />
-                                </div>
+                                {Object.keys(formData).map((key) => (
+                                    <div className="forms" key={key}>
+                                        <label>{key.toUpperCase()}:</label>
+                                        <input
+                                            type="text"
+                                            name={key}
+                                            placeholder={key.replace(/([A-Z])/g, " $1").trim()}
+                                            value={formData[key]}
+                                            onChange={handleInputChange}
+                                        />
+                                    </div>
+                                ))}
                             </form>
-                            <button type="submit">Update</button>
+                            <button type="button" onClick={handleUpdateClick}>
+                                Update
+                            </button>
                         </div>
                     )}
 
                     {activeSection === "jobs" && (
                         <div className="jobs">
                             <h3>My Jobs</h3>
-                            <div className="grid">
-                                <div className="job-card">Infosys</div>
-                                <div className="job-card">TCS</div>
-                                <div className="job-card">Wipro</div>
-                                <div className="job-card">Tata Steel</div>
-                                <div className="job-card">AWS</div>
-                                <div className="job-card">HCL</div>
-                                <div className="job-card">Adobe</div>
-                            </div>
+                            <p>Applied Job details will be displayed here...</p>
                         </div>
                     )}
 
                     {activeSection === "workshops" && (
                         <div className="workshops">
                             <h3>My Workshops</h3>
-                            <div className="grid">
-                                <div className="workshop-card">Infosys</div>
-                                <div className="workshop-card">TCS</div>
-                                <div className="workshop-card">Wipro</div>
-                                <div className="workshop-card">IBM</div>
-                                <div className="workshop-card">Tata Steel</div>
-                                <div className="workshop-card">HCL</div>
-                                <div className="workshop-card">Adobe</div>
-                            </div>
+                            <p>Applied Workshop details will be displayed here...</p>
                         </div>
                     )}
 
                     {activeSection === "internships" && (
                         <div className="internships">
                             <h3>My Internships</h3>
-                            <p>Internship details will be displayed here...</p>
+                            <p>Applied Internship details will be displayed here...</p>
                         </div>
                     )}
                 </div>
