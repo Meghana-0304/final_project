@@ -157,7 +157,7 @@ const Profile = () => {
                                     </div>
                                 ))}
                             </form>
-                            <button type="button" onClick={handleUpdateClick}>
+                            <button type="button" className="button" onClick={handleUpdateClick}>
                                 Update
                             </button>
                         </div>

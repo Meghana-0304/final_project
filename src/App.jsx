@@ -9,7 +9,7 @@ import Workshops from "./components/WORKSHOPS/Workshops";
 import Internships from "./components/INTERNSHIP/Internship";
 import Jobs from "./components/JOBS/Jobs";
 import Notifications from "./components/NOTIFICATIONS/Notifications";
-import Profile from "./components/PROFILE/Profile";
+import Profile from "./components/PROFILE/profile";
 import Contactus from "./components/CONTACTUS/Contactus"
 
 export default function App() {

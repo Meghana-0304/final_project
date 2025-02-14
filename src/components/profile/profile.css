@@ -6,7 +6,7 @@
 
 .profile-card {
     width: 30%;
-    margin: 20px;
+    margin: 10px;
     background: white;
     border-radius: 10px;
     text-align: center;
@@ -38,12 +38,14 @@
 
 .camera-icon img {
     position: absolute;
-    left: 300px;
-    top: 200px;
+    justify-content: baseline;
+    z-index: 1000;
     cursor: pointer;
     height: 40px;
     background-color: var(--light);
     border-radius: 50%;
+    left:320px;
+    top: 180px;
 }
 
 input[type="file"] {
@@ -103,8 +105,7 @@ input[type="file"] {
 .content {
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    margin: 20px;
+    margin: 10px;
     border-radius: 10px;
     border: solid 3px var(--dark);
     width: auto;
@@ -139,15 +140,15 @@ input[type="file"] {
 }
 
 .profile-details input {
-    width: 90%;
+    width: 700px;
     padding: 10px;
     margin: 5px 0;
-    border: 2px solid #ccc;
+    border: 2px solid var(--dark);
     border-radius: 5px;
     font-size: 20px;
 }
 
-.profile-details button {
+.button {
     padding: 15px;
     font-size: 20px;
     background: var(--primary);
@@ -188,4 +189,163 @@ input[type="file"] {
 .internships h3,
 .workshops h3 {
     font-size: 40px;
+}
+
+@media screen and (min-width: 320px) and (max-width: 480px){
+    .profile-container{
+        margin-left: 0;
+        margin-top: 60px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+    .profile-card{
+        width: 350px;
+    }
+    .content{
+        width: 350px;
+        margin: 10px;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+    .content-container{
+        justify-self: center;
+        align-items: center;
+        width: 350px;
+    }
+    .camera-icon img{
+        left: 230px;
+        top: 125px;
+        height: 40px;
+        width: 40px;
+    }
+    .forms{
+        margin: 20px 30px;
+    }
+    .profile-details input{
+        width: 250px;
+    }
+    .profile-details h3{
+        margin: 40px 20px;
+    }
+}
+
+@media screen and (width: 768px){
+    .profile-container{
+        margin-left: 85px;
+        margin-top: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+    .profile-card{
+        width: 600px;
+    }
+    .content{
+        width: 600px;
+        margin: 10px;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+    .content-container{
+        justify-self: center;
+        align-items: center;
+        width: 600px;
+    }
+    .camera-icon img{
+        left: 360px;
+        top: 175px;
+        height: 50px;
+        width: 50px;
+    }
+    .forms{
+        margin: 20px 30px;
+    }
+    .profile-details input{
+        width: 360px;
+    }
+    .profile-details h3{
+        margin: 40px 20px;
+    }
+
+}
+
+@media screen and (min-width: 800px) and (max-width:884px){
+    .profile-container{
+        margin-left: 85px;
+        margin-top: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+    .profile-card{
+        width: 700px;
+    }
+    .content{
+        width: 700px;
+        margin: 10px;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+    .content-container{
+        justify-self: center;
+        align-items: center;
+        width: 700px;
+    }
+    .camera-icon img{
+        left: 355px;
+        top: 185px;
+        height: 50px;
+        width: 50px;
+    }
+    .forms{
+        margin: 20px 30px;
+    }
+    .profile-details input{
+        width: 360px;
+    }
+    .profile-details h3{
+        margin: 40px 20px;
+    }
+}
+@media screen and (min-width: 1280px){
+    .profile-card{
+        width: 600px;
+    }
+    .content{
+        width: 600px;
+        margin: 10px;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+    .content-container{
+        justify-self: center;
+        align-items: center;
+        width: 600px;
+    }
+    .camera-icon img{
+        left: 355px;
+        top: 185px;
+        height: 50px;
+        width: 50px;
+    }
+    .forms{
+        margin: 20px 30px;
+    }
+    .profile-details input{
+        width: 360px;
+    }
+    .profile-details h3{
+        margin: 40px 20px;
+    }
 }
